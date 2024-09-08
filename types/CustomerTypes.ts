@@ -34,7 +34,7 @@ interface AddressModelResponse {
   lng: number;
 }
 
-interface CustomerModelResponse {
+export interface CustomerModelResponse {
   customerId: number; // Assuming `customerId` is a number. Adjust type if different.
   customerName: string;
   contactNumber: string;
@@ -53,4 +53,23 @@ interface CustomerModelResponse {
 export interface CreateCustomerResponse {
   status: string;
   data: CustomerModelResponse & { address: AddressModelResponse };
+}
+
+export interface paginationParamsType {
+  page?: string;
+  pageLimit?: string;
+  sortDirection?: "asc" | "desc";
+}
+
+export interface PaginationResponseType {
+  totalItems: number;
+  totalPages: number;
+  currentPage: number | string;
+  pageSize: number;
+}
+
+export interface GetAllCustomersResponseType {
+  status: string;
+  data: CreateCustomerResponse[];
+  pagination: PaginationResponseType;
 }
