@@ -59,6 +59,8 @@ export interface paginationParamsType {
   page?: string;
   pageLimit?: string;
   sortDirection?: "asc" | "desc";
+  search?: string;
+  orderBy?: string;
 }
 
 export interface PaginationResponseType {
