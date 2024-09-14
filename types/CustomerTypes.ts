@@ -56,8 +56,8 @@ export interface CreateCustomerResponse {
 }
 
 export interface paginationParamsType {
-  page?: string;
-  pageLimit?: string;
+  page?: number;
+  pageLimit?: number;
   sortDirection?: "asc" | "desc";
   search?: string;
   orderBy?: string;
