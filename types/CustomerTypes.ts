@@ -73,3 +73,12 @@ export interface GetAllCustomersResponseType {
   data: CreateCustomerResponse[];
   pagination: PaginationResponseType;
 }
+
+export interface DeleteCustomerParams {
+  customerId: string;
+}
+
+export interface DeleteCustomerResponse {
+  status: string;
+  data: string;
+}
