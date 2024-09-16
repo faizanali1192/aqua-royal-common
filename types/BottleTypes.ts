@@ -21,7 +21,7 @@ export interface BottlesModelResponseType {
 export interface GetAllBottlesResponseType {
   status: string;
   data: BottlesModelResponseType[];
-  pagination: BottlesPaginationParamType;
+  pagination: PaginationResponseType;
 }
 
 export interface BottleRequestTypes
