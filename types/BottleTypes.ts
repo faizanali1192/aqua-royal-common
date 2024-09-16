@@ -4,8 +4,8 @@ export interface BottlesPaginationParamType
   extends Omit<paginationParamsType, "search" | "orderBy"> {}
 
 export interface BottleListParamTypes extends BottlesPaginationParamType {
-  startDate: Date;
-  endDate: Date;
+  startDate: String;
+  endDate: String;
 }
 export interface BottlesModelResponseType {
   bottleId: number;
