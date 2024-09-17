@@ -84,3 +84,19 @@ export interface DeleteCustomerResponse {
   status: string;
   data: string;
 }
+
+export interface CustomerDropdownParamType {
+  sortDirection?: "asc" | "desc";
+}
+
+// Define the type for a customer
+export interface Customer {
+  customerId: string;
+  customerName: string;
+}
+
+// Define the response structure
+export interface CustomerDropdownResponseType {
+  status: string;
+  data: Customer[];
+}
