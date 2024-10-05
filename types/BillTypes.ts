@@ -38,6 +38,7 @@ export interface GetBillsByDateRangeQueryParams {
   pageLimit?: number;
   sortDirection?: "asc" | "desc";
   customerId?: string; // Optional
+  searchByBillId?: number;
 }
 
 // Define the response data type
