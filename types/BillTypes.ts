@@ -80,7 +80,7 @@ export interface DeleteBillResponse {
 }
 
 export interface GenerateBulkBillsBody {
-  customerIds: string[];
+  customerIds: number[];
 }
 
 export interface GenerateBulkBillsQuery {

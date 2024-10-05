@@ -33,6 +33,7 @@ export interface BottleRequestTypes
     | "deliveryDate"
     | "verifiedByCustomer"
     | "customerId"
+    | "bottleId"
   > {}
 
 export interface BottleResponseType {
