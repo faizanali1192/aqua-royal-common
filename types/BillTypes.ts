@@ -1,5 +1,7 @@
 import { paginationParamsType, PaginationResponseType } from "./CustomerTypes";
 
+export type billStatus = "paid" | "partiallyPaid" | "notPaid";
+
 // Define a type for the route parameters
 export interface GenerateBillParamPropsType {
   customerId: string;
@@ -39,6 +41,7 @@ export interface GetBillsByDateRangeQueryParams {
   sortDirection?: "asc" | "desc";
   customerId?: string; // Optional
   searchByBillId?: number;
+  billStatus: billStatus;
 }
 
 // Define the response data type
@@ -48,7 +51,7 @@ export interface Bill {
   totalAmount: number;
   paidAmount: number;
   remainingAmount: number;
-  billStatus: "paid" | "partiallyPaid" | "notPaid";
+  billStatus: billStatus;
   billStartDate: string;
   billEndDate: string;
   createdAt: string;
