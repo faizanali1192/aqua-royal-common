@@ -59,7 +59,7 @@ export interface UpdatePaymentResponse {
 }
 
 export interface GetPaymentsListQuery {
-  billId?: string;
+  billId?: number;
   startDate: string;
   endDate: string;
   page?: number; // Optional, defaults to "1"
