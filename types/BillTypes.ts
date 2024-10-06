@@ -41,7 +41,7 @@ export interface GetBillsByDateRangeQueryParams {
   sortDirection?: "asc" | "desc";
   customerId?: string; // Optional
   searchByBillId?: number;
-  billStatus: billStatus;
+  billStatus?: billStatus;
 }
 
 // Define the response data type
