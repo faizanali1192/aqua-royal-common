@@ -62,8 +62,8 @@ export interface GetPaymentsListQuery {
   billId?: string;
   startDate: string;
   endDate: string;
-  page?: string; // Optional, defaults to "1"
-  pageLimit?: string; // Optional, defaults to "10"
+  page?: number; // Optional, defaults to "1"
+  pageLimit?: number; // Optional, defaults to "10"
   sortDirection?: "asc" | "desc"; // Optional, defaults to "asc"
 }
 
