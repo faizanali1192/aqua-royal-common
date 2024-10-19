@@ -1,4 +1,4 @@
-interface Address {
+export interface Address {
   addressLineOne: string;
   addressLineTwo?: string;
   area: string;

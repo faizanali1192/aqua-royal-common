@@ -51,6 +51,7 @@ export interface Bill {
   totalAmount: number;
   paidAmount: number;
   remainingAmount: number;
+  lastMonthRemainingAmount: number;
   billStatus: billStatus;
   billStartDate: string;
   billEndDate: string;
@@ -115,4 +116,12 @@ export interface GenerateBulkBillsResponse {
     createdBills: CreatedBill[];
     errors: ErrorDetail[];
   };
+}
+
+export interface BillsPdfReportQuery {
+  startDate: string;
+  endDate: string;
+  sortDirection?: "asc" | "desc"; // Optional, default is "asc"
+  customerId?: string; // Optional filter parameter
+  billStatus?: "paid" | "unpaid" | "partiallyPaid"; // Optional filter parameter
 }
