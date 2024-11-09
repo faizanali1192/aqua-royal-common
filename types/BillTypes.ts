@@ -55,6 +55,7 @@ export interface Bill {
   billStatus: billStatus;
   billStartDate: string;
   billEndDate: string;
+  totalBottles: number;
   createdAt: string;
   updatedAt: string;
 }

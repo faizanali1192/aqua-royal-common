@@ -14,6 +14,7 @@ export interface BottlesModelResponseType {
   deliveredBottlesQuantity: number;
   receivedBottlesQuantity: number;
   deliveryDate: string;
+  receivedPersonName?: string;
   verifiedByCustomer: boolean;
   createdAt: string;
   updatedAt: string;
@@ -34,6 +35,7 @@ export interface BottleRequestTypes
     | "verifiedByCustomer"
     | "customerId"
     | "bottleId"
+    | "receivedPersonName"
   > {}
 
 export interface BottleResponseType {
