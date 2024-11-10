@@ -7,17 +7,24 @@ export interface Address {
   lat: number;
   lng: number;
 }
+export interface Dispenser {
+  dispenserId?: string;
+  dispenserCompanyName?: string;
+  dispenserModelNumber?: string;
+  dispenserDeliveryPersonName?: string;
+  dispenserDeliveryDate?: string;
+  dispenserReceivedByPersonName?: string;
+  personWhoReceivedBackDispenserAfterContractEnd?: number;
+}
 
 export interface CreateCustomerRequest {
   customerName: string;
   contactNumber: string;
   totalEmptyBottles: number;
-  totalDispensers: number;
-  dispenserCompanyName: string;
-  dispenserModelNo: string;
   rate: number;
   active: boolean;
   address: Address;
+  dispensers: Dispenser[];
   customerType: string;
   bottleType: string;
   billType: string;
@@ -39,9 +46,7 @@ export interface CustomerModelResponse {
   customerName: string;
   contactNumber: string;
   totalEmptyBottles: number;
-  totalDispensers: number;
-  dispenserCompanyName: string;
-  dispenserModelNo: string;
+  dispensers: Dispenser[];
   rate: number;
   active: boolean;
   addressId: number;
@@ -50,6 +55,10 @@ export interface CustomerModelResponse {
   billType: string;
 }
 
+export interface CustomerDetailsResponse {
+  status: string;
+  data: CustomerModelResponse;
+}
 export interface CreateCustomerResponse {
   status: string;
   data: CustomerModelResponse & { address: AddressModelResponse };
