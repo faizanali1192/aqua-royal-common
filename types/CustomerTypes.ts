@@ -28,6 +28,8 @@ export interface CreateCustomerRequest {
   customerType: string;
   bottleType: string;
   billType: string;
+  mobileNumber: string;
+  note: string;
 }
 
 interface AddressModelResponse {
@@ -53,6 +55,8 @@ export interface CustomerModelResponse {
   customerType: string;
   bottleType: string;
   billType: string;
+  mobileNumber: string;
+  note: string;
 }
 
 export interface CustomerDetailsResponse {
