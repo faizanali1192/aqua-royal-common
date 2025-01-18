@@ -14,12 +14,18 @@ export interface Dispenser {
   dispenserDeliveryPersonName?: string;
   dispenserDeliveryDate?: string;
   dispenserReceivedByPersonName?: string;
+  dispenserColor?: string;
   personWhoReceivedBackDispenserAfterContractEnd?: number;
+}
+
+interface Contacts {
+  contactName: string;
+  contactNumber: string;
 }
 
 export interface CreateCustomerRequest {
   customerName: string;
-  contactNumber: string;
+  // contactNumber: string;
   totalEmptyBottles: number;
   rate: number;
   active: boolean;
@@ -28,8 +34,9 @@ export interface CreateCustomerRequest {
   customerType: string;
   bottleType: string;
   billType: string;
-  mobileNumber: string;
+  // mobileNumber: string;
   note: string;
+  contacts: Contacts[];
 }
 
 interface AddressModelResponse {
@@ -46,7 +53,7 @@ interface AddressModelResponse {
 export interface CustomerModelResponse {
   customerId: number; // Assuming `customerId` is a number. Adjust type if different.
   customerName: string;
-  contactNumber: string;
+  // contactNumber: string;
   totalEmptyBottles: number;
   dispensers: Dispenser[];
   rate: number;
@@ -55,8 +62,9 @@ export interface CustomerModelResponse {
   customerType: string;
   bottleType: string;
   billType: string;
-  mobileNumber: string;
+  // mobileNumber: string;
   note: string;
+  contacts: Contacts[];
 }
 
 export interface CustomerDetailsResponse {
