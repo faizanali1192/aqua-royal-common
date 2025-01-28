@@ -23,6 +23,7 @@ export interface BottlesModelResponseType {
 export interface GetAllBottlesResponseType {
   status: string;
   data: BottlesModelResponseType[];
+  totalDeliveredBottles: Number;
   pagination: PaginationResponseType;
 }
 
