@@ -12,6 +12,7 @@ export interface BottlesModelResponseType {
   bottleId: number;
   customerId: number;
   deliveredBottlesQuantity: number;
+  receivedEmptyBottlesQuantity: number;
   receivedBottlesQuantity: number;
   deliveryDate: string;
   receivedPersonName?: string;
@@ -37,6 +38,7 @@ export interface BottleRequestTypes
     | "customerId"
     | "bottleId"
     | "receivedPersonName"
+    | "receivedEmptyBottlesQuantity"
   > {}
 
 export interface BottleResponseType {
