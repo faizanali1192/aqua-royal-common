@@ -1,4 +1,3 @@
-import { SortOrderType } from "../../constants/GlobalTypes";
 import { paginationParamsType, PaginationResponseType } from "./CustomerTypes";
 
 export type PaymentEventType =
