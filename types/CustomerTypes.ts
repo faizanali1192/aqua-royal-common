@@ -1,4 +1,4 @@
-import { SortOrderType } from "../../constants/GlobalTypes";
+export type SortOrderType = "asc" | "desc";
 
 export interface Address {
   addressLineOne: string;
