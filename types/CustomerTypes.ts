@@ -1,3 +1,5 @@
+import { SortOrderType } from "../../constants/GlobalTypes";
+
 export interface Address {
   addressLineOne: string;
   addressLineTwo?: string;
@@ -79,7 +81,7 @@ export interface CreateCustomerResponse {
 export interface paginationParamsType {
   page?: number;
   pageLimit?: number;
-  sortDirection?: "asc" | "desc";
+  sortDirection?: SortOrderType;
   search?: string;
   orderBy?: string;
 }

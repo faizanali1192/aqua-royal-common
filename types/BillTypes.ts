@@ -30,9 +30,7 @@ interface BillResponseType {
 
 export interface GenerateBillResponseType {
   status: string;
-  totalDeliveredBottles: number;
   data: BillResponseType[];
-  pagination: PaginationResponseType;
 }
 
 export interface GetBillsByDateRangeQueryParams {
