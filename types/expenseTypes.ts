@@ -37,7 +37,7 @@ export interface GetExpensesResponseType {
   pagination: PaginationResponseType;
 }
 
-export interface BottleListParamTypes {
+export interface ExpenseListParamTypes {
   category: string;
   billId?: number;
   startDate?: string;
