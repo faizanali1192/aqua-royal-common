@@ -36,3 +36,13 @@ export interface GetExpensesResponseType {
   totalExpenseAmount: number;
   pagination: PaginationResponseType;
 }
+
+export interface BottleListParamTypes {
+  category: string;
+  billId?: number;
+  startDate?: string;
+  endDate?: string;
+  page?: number; // Optional, defaults to "1"
+  pageLimit?: number; // Optional, defaults to "10"
+  sortDirection?: "asc" | "desc"; // Optional, defaults to "asc"
+}
