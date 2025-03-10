@@ -27,6 +27,10 @@ export interface UpdateExpenseResponse {
   message?: string;
 }
 
+export interface DeleteExpenseParamType {
+  expenseId: string;
+}
+
 export interface DeleteExpenseResponse {
   status: string;
   message: string;
