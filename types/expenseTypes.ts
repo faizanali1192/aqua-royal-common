@@ -17,7 +17,9 @@ export interface CreateExpenseResponse {
   message?: string;
 }
 
-export interface UpdateExpenseRequest extends CreateExpenseRequest {}
+export interface UpdateExpenseRequest extends CreateExpenseRequest {
+  expenseId: string;
+}
 
 export interface UpdateExpenseResponse {
   status: string;
