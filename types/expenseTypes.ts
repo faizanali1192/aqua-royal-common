@@ -38,7 +38,7 @@ export interface GetExpensesResponseType {
 }
 
 export interface ExpenseListParamTypes {
-  category: string;
+  category?: string;
   startDate?: string;
   endDate?: string;
   page?: number; // Optional, defaults to "1"
