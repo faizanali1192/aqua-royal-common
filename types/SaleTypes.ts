@@ -40,5 +40,13 @@ export interface GetSalesResponseType {
 }
 
 export interface DeleteSaleParamType {
-  expenseId: string;
+  saleId: string;
+}
+
+export interface SaleListParamTypes {
+  startDate?: string;
+  endDate?: string;
+  page?: number; // Optional, defaults to "1"
+  pageLimit?: number; // Optional, defaults to "10"
+  sortDirection?: "asc" | "desc"; // Optional, defaults to "asc"
 }
