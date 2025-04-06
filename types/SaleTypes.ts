@@ -38,3 +38,7 @@ export interface GetSalesResponseType {
     pageSize: number;
   };
 }
+
+export interface DeleteSaleParamType {
+  expenseId: string;
+}
