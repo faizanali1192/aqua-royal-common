@@ -60,11 +60,18 @@ export interface Bill {
   updatedAt: string;
 }
 
+export type BillSummary = {
+  totalAmount: number | null;
+  receivedAmount: number | null;
+  remainingAmount: number | null;
+};
+
 // Define the response type
 export interface GetBillsByDateRangeResponseType {
   status: string;
   data: Bill[]; // Array of bills
   pagination: PaginationResponseType;
+  summary: BillSummary;
 }
 
 export interface GetBillByIdParams {
