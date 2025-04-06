@@ -8,3 +8,7 @@ export interface GetProfitResponseType {
     totalBillCollectionAmount: number;
   };
 }
+export interface GetProfitParamTypes {
+  startDate?: string;
+  endDate?: string;
+}
