@@ -1,3 +1,5 @@
+export type UserRole = "superAdmin" | "admin" | "driver" | "customer";
+
 enum UserRoles {
   superAdmin,
   admin,
@@ -7,6 +9,7 @@ enum UserRoles {
 
 export interface AddUserParamType {
   userName: string;
+  fullName: string;
   email: string;
   userRole: UserRoles;
   password: string;
@@ -18,13 +21,53 @@ export interface AddUserResponseType {
 }
 
 export interface LoginApiParamType {
-  email: string;
+  userName: string;
+  email?: string;
   password: string;
 }
 export interface LoginApiResponseType {
+  status: string;
   message: string;
   accessToken: string;
   refreshToken: string;
+  user: AuthUserType;
+}
+
+export interface AuthUserType {
+  userId: number;
+  userName: string;
+  fullName: string;
+  email: string;
+  userRole: UserRole;
+  isEmailVerified: boolean;
+}
+
+export interface RegisterApiParamType {
+  userName: string;
+  fullName: string;
+  email: string;
+  password: string;
+}
+
+export interface VerifyRegistrationOtpParamType {
+  email: string;
+  otp: string;
+}
+
+export interface ForgotPasswordApiParamType {
+  email: string;
+}
+
+export interface ResetPasswordApiParamType {
+  email: string;
+  otp: string;
+  password: string;
+}
+
+export interface AuthMessageResponseType {
+  status: string;
+  message: string;
+  user?: AuthUserType;
 }
 
 export interface DecodedToken {
