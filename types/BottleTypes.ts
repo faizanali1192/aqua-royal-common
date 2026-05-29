@@ -25,7 +25,17 @@ export interface GetAllBottlesResponseType {
   status: string;
   data: BottlesModelResponseType[];
   totalDeliveredBottles: number;
+  summary: BottleSummaryResponseType;
   pagination: PaginationResponseType;
+}
+
+export interface BottleSummaryResponseType {
+  totalRecords: number;
+  totalDeliveredBottles: number;
+  totalReceivedBottles: number;
+  latestEmptyBottles: number;
+  verifiedRecords: number;
+  notVerifiedRecords: number;
 }
 
 export interface BottleRequestTypes

@@ -93,10 +93,21 @@ export interface PaginationResponseType {
   pageSize: number;
 }
 
+export interface CustomerSummaryResponseType {
+  totalCustomers: number;
+  activeCustomers: number;
+  inactiveCustomers: number;
+  fixedCustomers: number;
+  nonFixedCustomers: number;
+  totalEmptyBottles: number;
+  totalDispensers: number;
+}
+
 export interface GetAllCustomersResponseType {
   status: string;
   data: CreateCustomerResponse[];
   pagination: PaginationResponseType;
+  summary: CustomerSummaryResponseType;
 }
 
 export interface DeleteCustomerParams {
