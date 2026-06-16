@@ -11,6 +11,7 @@ export interface BottleListParamTypes extends BottlesPaginationParamType {
 export interface BottlesModelResponseType {
   bottleId: number;
   customerId: number;
+  ownerUserId?: number;
   deliveredBottlesQuantity: number;
   receivedEmptyBottlesQuantity: number;
   receivedBottlesQuantity: number;

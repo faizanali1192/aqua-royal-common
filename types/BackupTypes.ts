@@ -8,6 +8,18 @@ export type BackupTableName =
   | "payments"
   | "paymentLogs"
   | "expenses"
+  | "dailyNotes"
+  | "aiChatSessions"
+  | "aiChatMessages"
+  | "systemNotifications"
+  | "customerFiles"
+  | "customerAppOrganizations"
+  | "customerAppBranches"
+  | "customerAppCredentials"
+  | "driverAppAccounts"
+  | "driverCustomerAccesses"
+  | "bottleBatches"
+  | "bottleBatchRecords"
   | "sale";
 
 export interface BackupTableSummary {

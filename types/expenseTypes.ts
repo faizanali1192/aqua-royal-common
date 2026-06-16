@@ -9,6 +9,7 @@ export interface CreateExpenseRequest {
 
 interface expenseResponse extends CreateExpenseRequest {
   expenseId: number;
+  ownerUserId?: number;
 }
 
 export interface CreateExpenseResponse {

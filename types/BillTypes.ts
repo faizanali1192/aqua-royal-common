@@ -1,4 +1,8 @@
-import { paginationParamsType, PaginationResponseType } from "./CustomerTypes";
+import {
+  CustomerListItemResponse,
+  paginationParamsType,
+  PaginationResponseType,
+} from "./CustomerTypes";
 
 export type billStatus = "paid" | "partiallyPaid" | "notPaid";
 
@@ -42,12 +46,14 @@ export interface GetBillsByDateRangeQueryParams {
   customerId?: string; // Optional
   searchByBillId?: number;
   billStatus?: billStatus;
+  customerType?: "fixed" | "nonFixed";
 }
 
 // Define the response data type
 export interface Bill {
   billId: string;
   customerId: string;
+  ownerUserId?: number;
   totalAmount: number;
   paidAmount: number;
   remainingAmount: number;
@@ -60,16 +66,22 @@ export interface Bill {
   updatedAt: string;
 }
 
+export interface BillWithCustomer extends Bill {
+  customer?: CustomerListItemResponse;
+}
+
 export type BillSummary = {
   totalAmount: number | null;
   receivedAmount: number | null;
   remainingAmount: number | null;
+  lastMonthRemainingAmount: number | null;
+  totalBottles: number | null;
 };
 
 // Define the response type
 export interface GetBillsByDateRangeResponseType {
   status: string;
-  data: Bill[]; // Array of bills
+  data: BillWithCustomer[];
   pagination: PaginationResponseType;
   summary: BillSummary;
 }
@@ -80,7 +92,7 @@ export interface GetBillByIdParams {
 
 export interface GetBillByIdResponse {
   status: string;
-  data: Bill | null;
+  data: BillWithCustomer | null;
 }
 
 export interface DeleteBillParams {
@@ -99,6 +111,20 @@ export interface GenerateBulkBillsBody {
 export interface GenerateBulkBillsQuery {
   startDate: string;
   endDate: string;
+}
+
+export interface GenerateCustomBillPdfRequest {
+  customerId?: string;
+  billDate?: string;
+  customerName?: string;
+  contactNumber?: string;
+  address?: string;
+  customerType?: "fixed" | "nonFixed";
+  bottles?: string | number;
+  rate?: string | number;
+  remainingAmount?: string | number;
+  amount?: string | number;
+  totalAmount?: string | number;
 }
 
 export interface CreatedBill {
@@ -132,4 +158,5 @@ export interface BillsPdfReportQuery {
   sortDirection?: "asc" | "desc"; // Optional, default is "asc"
   customerId?: string; // Optional filter parameter
   billStatus?: "paid" | "unpaid" | "partiallyPaid"; // Optional filter parameter
+  customerType?: "fixed" | "nonFixed";
 }

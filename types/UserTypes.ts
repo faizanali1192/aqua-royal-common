@@ -1,17 +1,49 @@
 export type UserRole = "superAdmin" | "admin" | "driver" | "customer";
+export type UserAccountStatus = "pending" | "active" | "suspended";
 
-enum UserRoles {
-  superAdmin,
-  admin,
-  driver,
-  customer,
-}
+export const ADMIN_PAGE_PERMISSIONS = [
+  "dashboard",
+  "aiAssistant",
+  "notes",
+  "customers",
+  "records",
+  "bottles",
+  "batches",
+  "sale",
+  "expenses",
+  "bill",
+  "customBill",
+  "paymentLogs",
+  "credical",
+  "backup",
+  "setting",
+  "userAdmin",
+] as const;
+
+export type AdminPagePermission = (typeof ADMIN_PAGE_PERMISSIONS)[number];
+
+export const SUPER_ADMIN_PAGE_PERMISSIONS: AdminPagePermission[] = [
+  "userAdmin",
+];
+
+export const USER_ROLES: UserRole[] = [
+  "superAdmin",
+  "admin",
+  "driver",
+  "customer",
+];
+
+export const USER_ACCOUNT_STATUSES: UserAccountStatus[] = [
+  "pending",
+  "active",
+  "suspended",
+];
 
 export interface AddUserParamType {
   userName: string;
   fullName: string;
   email: string;
-  userRole: UserRoles;
+  userRole: UserRole;
   password: string;
 }
 
@@ -37,9 +69,16 @@ export interface AuthUserType {
   userId: number;
   userName: string;
   fullName: string;
+  profileDisplayName?: string | null;
+  profileImageDataUrl?: string | null;
   email: string;
   userRole: UserRole;
+  accountStatus: UserAccountStatus;
+  pagePermissions: AdminPagePermission[];
   isEmailVerified: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+  lastLoginAt?: string | null;
 }
 
 export interface RegisterApiParamType {
@@ -70,10 +109,59 @@ export interface AuthMessageResponseType {
   user?: AuthUserType;
 }
 
+export interface UpdateCurrentUserProfileRequest {
+  profileDisplayName?: string | null;
+  profileImageDataUrl?: string | null;
+}
+
+export interface UpdateCurrentUserProfileResponse {
+  status: string;
+  message: string;
+  user: AuthUserType;
+}
+
+export interface AdminUsersSummary {
+  totalUsers: number;
+  pendingUsers: number;
+  activeUsers: number;
+  suspendedUsers: number;
+  superAdmins: number;
+}
+
+export interface AdminUsersResponseType {
+  status: string;
+  data: AuthUserType[];
+  summary: AdminUsersSummary;
+}
+
+export interface CreateAdminUserRequest {
+  userName: string;
+  fullName: string;
+  email: string;
+  password: string;
+  userRole: UserRole;
+  accountStatus: UserAccountStatus;
+  pagePermissions: AdminPagePermission[];
+}
+
+export interface UpdateAdminUserRequest {
+  userRole?: UserRole;
+  accountStatus?: UserAccountStatus;
+  isEmailVerified?: boolean;
+  pagePermissions?: AdminPagePermission[];
+}
+
+export interface AdminUserMutationResponseType {
+  status: string;
+  message: string;
+  user: AuthUserType;
+}
+
 export interface DecodedToken {
   userId: string;
+  sub?: string;
   userRole: string;
   email: string;
-  iat: number;
   exp: number;
+  iat?: number;
 }

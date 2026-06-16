@@ -5,6 +5,7 @@ export interface AddPaymentBody {
   paymentReceivedDate: string;
   receivedAmount: number;
   receivedBy: string;
+  paymentType: string;
 }
 
 export interface AddPaymentParams {
@@ -13,9 +14,11 @@ export interface AddPaymentParams {
 
 export interface PaymentData {
   billId: string;
+  ownerUserId?: number;
   paymentReceivedDate: string;
   receivedAmount: number;
   receivedBy: string;
+  paymentType: string;
 }
 
 export interface UpdatedBillData {
@@ -36,6 +39,7 @@ export interface UpdatePaymentBody {
   paymentReceivedDate: string;
   receivedAmount: number;
   receivedBy: string;
+  paymentType: string;
 }
 
 export interface UpdatePaymentParams {
@@ -47,6 +51,7 @@ export interface UpdatedPaymentData {
   paymentReceivedDate: string;
   receivedAmount: number;
   receivedBy: string;
+  paymentType: string;
   billId: string;
 }
 
@@ -59,7 +64,7 @@ export interface UpdatePaymentResponse {
 }
 
 export interface GetPaymentsListQuery {
-  billId?: number;
+  billId?: string | number;
   startDate?: string;
   endDate?: string;
   page?: number; // Optional, defaults to "1"
@@ -70,9 +75,11 @@ export interface GetPaymentsListQuery {
 export interface PaymentDataType {
   paymentId: string;
   billId: string;
+  ownerUserId?: number;
   paymentReceivedDate: string;
   receivedAmount: number;
   receivedBy: string;
+  paymentType: string;
 }
 
 export interface GetPaymentsListResponse {

@@ -22,16 +22,30 @@ export interface GetPaymentLogsParams
 export interface PaymentLog {
   paymentLogId: number;
   billId: number;
+  ownerUserId?: number;
   billStartDate: string;
   billEndDate: string;
+  paymentAmount: number;
   customerId: number;
   customerName: string;
   eventType: PaymentEventType;
   performedAt: string;
 }
 
+export interface PaymentLogsSummary {
+  totalLogs: number;
+  totalAmount: number;
+  paymentReceivedCount: number;
+  paymentReceivedAmount: number;
+  paymentUpdatedCount: number;
+  paymentUpdatedAmount: number;
+  paymentDeletedCount: number;
+  paymentDeletedAmount: number;
+}
+
 export interface GetPaymentLogsResponse {
   status: "success";
   data: PaymentLog[];
+  summary: PaymentLogsSummary;
   pagination: PaginationResponseType;
 }
