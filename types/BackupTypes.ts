@@ -16,6 +16,7 @@ export type BackupTableName =
   | "customerAppOrganizations"
   | "customerAppBranches"
   | "customerAppCredentials"
+  | "customerCylinderRequests"
   | "driverAppAccounts"
   | "driverCustomerAccesses"
   | "bottleBatches"

@@ -31,6 +31,7 @@ export interface CustomerAppCredential {
   active: boolean;
   createdAt?: string;
   updatedAt?: string;
+  lastLoginAt?: string | null;
 }
 
 export interface CustomerAppHubSummary {
@@ -112,6 +113,7 @@ export interface CustomerAppLoginResponse {
       organizationId: number | null;
       branchIds: number[];
       active: boolean;
+      lastLoginAt?: string | null;
     };
     organization: CustomerAppOrganization | null;
     branches: CustomerAppLoginBranch[];

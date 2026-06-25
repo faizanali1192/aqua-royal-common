@@ -1,3 +1,8 @@
+import type {
+  CustomerCylinderRequestRecord,
+  CustomerCylinderRequestSummary,
+} from "./DashboardTypes";
+
 export type DriverAppLanguage = "en" | "ur";
 
 export interface DriverAppAccount {
@@ -8,12 +13,14 @@ export interface DriverAppAccount {
   phone: string;
   email: string;
   homeAddress: string;
+  photo?: string | null;
   passwordSample: string;
   defaultLanguage: DriverAppLanguage;
   notes: string;
   active: boolean;
   createdAt?: string;
   updatedAt?: string;
+  lastLoginAt?: string | null;
 }
 
 export interface DriverCustomerAccess {
@@ -49,6 +56,7 @@ export interface CreateDriverAppAccountRequest {
   phone: string;
   email?: string;
   homeAddress?: string;
+  photo?: string | null;
   password?: string;
   defaultLanguage?: DriverAppLanguage;
   notes?: string;
@@ -83,4 +91,10 @@ export interface DriverAppLoginResponse {
   data: {
     driver: Omit<DriverAppAccount, "passwordSample">;
   };
+}
+
+export interface DriverCustomerRequestsResponse {
+  status: "success";
+  data: CustomerCylinderRequestRecord[];
+  summary: CustomerCylinderRequestSummary;
 }

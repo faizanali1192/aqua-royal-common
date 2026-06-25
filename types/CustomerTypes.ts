@@ -8,8 +8,8 @@ export interface Address {
   areaUrdu?: string;
   city: string;
   country: string;
-  lat: number;
-  lng: number;
+  lat?: number | null;
+  lng?: number | null;
 }
 export interface Dispenser {
   dispenserId?: string;
@@ -53,8 +53,8 @@ export interface AddressModelResponse {
   areaUrdu?: string;
   city: string;
   country: string;
-  lat: number;
-  lng: number;
+  lat?: number | null;
+  lng?: number | null;
 }
 
 export interface CustomerModelResponse {

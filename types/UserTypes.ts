@@ -7,6 +7,10 @@ export const ADMIN_PAGE_PERMISSIONS = [
   "notes",
   "customers",
   "records",
+  "employees",
+  "attendance",
+  "salaryManagement",
+  "employeeData",
   "bottles",
   "batches",
   "sale",
@@ -23,7 +27,7 @@ export const ADMIN_PAGE_PERMISSIONS = [
 export type AdminPagePermission = (typeof ADMIN_PAGE_PERMISSIONS)[number];
 
 export const SUPER_ADMIN_PAGE_PERMISSIONS: AdminPagePermission[] = [
-  "userAdmin",
+  ...ADMIN_PAGE_PERMISSIONS,
 ];
 
 export const USER_ROLES: UserRole[] = [
@@ -71,6 +75,10 @@ export interface AuthUserType {
   fullName: string;
   profileDisplayName?: string | null;
   profileImageDataUrl?: string | null;
+  mobileUserName?: string | null;
+  mobilePasswordSample?: string | null;
+  mobileDefaultLanguage?: "en" | "ur" | string | null;
+  mobileLastLoginAt?: string | null;
   email: string;
   userRole: UserRole;
   accountStatus: UserAccountStatus;
@@ -115,6 +123,18 @@ export interface UpdateCurrentUserProfileRequest {
 }
 
 export interface UpdateCurrentUserProfileResponse {
+  status: string;
+  message: string;
+  user: AuthUserType;
+}
+
+export interface UpdateCurrentUserMobileCredentialsRequest {
+  username: string;
+  password?: string;
+  defaultLanguage?: "en" | "ur";
+}
+
+export interface UpdateCurrentUserMobileCredentialsResponse {
   status: string;
   message: string;
   user: AuthUserType;
