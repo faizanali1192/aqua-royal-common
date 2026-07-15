@@ -2,12 +2,14 @@ export type SortOrderType = "asc" | "desc";
 
 export interface Address {
   addressLineOne: string;
+  addressLineOneUrdu?: string;
   addressLineTwo?: string;
   area: string;
+  areaUrdu?: string;
   city: string;
   country: string;
-  lat: number;
-  lng: number;
+  lat?: number | null;
+  lng?: number | null;
 }
 export interface Dispenser {
   dispenserId?: string;
@@ -27,6 +29,7 @@ interface Contacts {
 
 export interface CreateCustomerRequest {
   customerName: string;
+  customerNameUrdu?: string;
   // contactNumber: string;
   totalEmptyBottles: number;
   rate: number;
@@ -41,20 +44,24 @@ export interface CreateCustomerRequest {
   contacts: Contacts[];
 }
 
-interface AddressModelResponse {
+export interface AddressModelResponse {
   addressId: number; // Assuming `addressId` is a number. Adjust type if different.
   addressLineOne: string;
+  addressLineOneUrdu?: string;
   addressLineTwo?: string;
   area: string;
+  areaUrdu?: string;
   city: string;
   country: string;
-  lat: number;
-  lng: number;
+  lat?: number | null;
+  lng?: number | null;
 }
 
 export interface CustomerModelResponse {
   customerId: number; // Assuming `customerId` is a number. Adjust type if different.
+  ownerUserId?: number;
   customerName: string;
+  customerNameUrdu?: string;
   // contactNumber: string;
   totalEmptyBottles: number;
   dispensers: Dispenser[];
@@ -69,10 +76,15 @@ export interface CustomerModelResponse {
   contacts: Contacts[];
 }
 
+export interface CustomerListItemResponse extends CustomerModelResponse {
+  address?: AddressModelResponse;
+}
+
 export interface CustomerDetailsResponse {
   status: string;
-  data: CustomerModelResponse;
+  data: CustomerListItemResponse;
 }
+
 export interface CreateCustomerResponse {
   status: string;
   data: CustomerModelResponse & { address: AddressModelResponse };
@@ -84,6 +96,7 @@ export interface paginationParamsType {
   sortDirection?: SortOrderType;
   search?: string;
   orderBy?: string;
+  active?: boolean | "true" | "false";
 }
 
 export interface PaginationResponseType {
@@ -93,10 +106,21 @@ export interface PaginationResponseType {
   pageSize: number;
 }
 
+export interface CustomerSummaryResponseType {
+  totalCustomers: number;
+  activeCustomers: number;
+  inactiveCustomers: number;
+  fixedCustomers: number;
+  nonFixedCustomers: number;
+  totalEmptyBottles: number;
+  totalDispensers: number;
+}
+
 export interface GetAllCustomersResponseType {
   status: string;
-  data: CreateCustomerResponse[];
+  data: CustomerListItemResponse[];
   pagination: PaginationResponseType;
+  summary: CustomerSummaryResponseType;
 }
 
 export interface DeleteCustomerParams {
@@ -116,6 +140,7 @@ export interface CustomerDropdownParamType {
 export interface Customer {
   customerId: string;
   customerName: string;
+  customerNameUrdu?: string;
 }
 
 // Define the response structure
