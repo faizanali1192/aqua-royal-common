@@ -11,7 +11,9 @@ export interface BottleListParamTypes extends BottlesPaginationParamType {
 export interface BottlesModelResponseType {
   bottleId: number;
   customerId: number;
+  ownerUserId?: number;
   deliveredBottlesQuantity: number;
+  receivedEmptyBottlesQuantity: number;
   receivedBottlesQuantity: number;
   deliveryDate: string;
   receivedPersonName?: string;
@@ -24,7 +26,17 @@ export interface GetAllBottlesResponseType {
   status: string;
   data: BottlesModelResponseType[];
   totalDeliveredBottles: number;
+  summary: BottleSummaryResponseType;
   pagination: PaginationResponseType;
+}
+
+export interface BottleSummaryResponseType {
+  totalRecords: number;
+  totalDeliveredBottles: number;
+  totalReceivedBottles: number;
+  latestEmptyBottles: number;
+  verifiedRecords: number;
+  notVerifiedRecords: number;
 }
 
 export interface BottleRequestTypes
@@ -37,6 +49,7 @@ export interface BottleRequestTypes
     | "customerId"
     | "bottleId"
     | "receivedPersonName"
+    | "receivedEmptyBottlesQuantity"
   > {}
 
 export interface BottleResponseType {
