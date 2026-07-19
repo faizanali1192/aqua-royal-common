@@ -76,6 +76,8 @@ export type BillSummary = {
   remainingAmount: number | null;
   lastMonthRemainingAmount: number | null;
   totalBottles: number | null;
+  totalPcBottles?: number | null;
+  totalKnBottles?: number | null;
 };
 
 // Define the response type
