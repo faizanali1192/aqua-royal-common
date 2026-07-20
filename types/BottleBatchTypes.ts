@@ -1,6 +1,6 @@
 import { DriverAppAccount } from "./DriverTypes";
 
-export type BottleBatchBottleType = "pc" | "kn";
+export type BottleBatchBottleType = "pc" | "kn" | "pet";
 export type BottleBatchStatus =
   | "assigned"
   | "active"

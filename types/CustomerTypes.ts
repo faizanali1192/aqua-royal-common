@@ -112,6 +112,12 @@ export interface CustomerSummaryResponseType {
   inactiveCustomers: number;
   fixedCustomers: number;
   nonFixedCustomers: number;
+  pcFixedCustomers: number;
+  knFixedCustomers: number;
+  petFixedCustomers: number;
+  pcNonFixedCustomers: number;
+  knNonFixedCustomers: number;
+  petNonFixedCustomers: number;
   totalEmptyBottles: number;
   totalDispensers: number;
 }

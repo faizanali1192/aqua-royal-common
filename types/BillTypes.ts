@@ -78,6 +78,7 @@ export type BillSummary = {
   totalBottles: number | null;
   totalPcBottles?: number | null;
   totalKnBottles?: number | null;
+  totalPetBottles?: number | null;
 };
 
 // Define the response type
