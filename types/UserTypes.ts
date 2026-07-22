@@ -55,6 +55,12 @@ export type PaymentReceiverPreference = {
   name: string;
 };
 
+export type ExpenseCategoryPreference = {
+  id: string;
+  isDefault?: boolean;
+  name: string;
+};
+
 export interface AddUserParamType {
   userName: string;
   fullName: string;
@@ -103,6 +109,7 @@ export interface AuthUserType {
   whatsappFallbackNumber?: string | null;
   paymentTypes?: PaymentTypePreference[] | null;
   paymentReceivers?: PaymentReceiverPreference[] | null;
+  expenseCategories?: ExpenseCategoryPreference[] | null;
 }
 
 export interface RegisterApiParamType {
@@ -140,6 +147,7 @@ export interface UpdateCurrentUserProfileRequest {
   whatsappFallbackNumber?: string | null;
   paymentTypes?: PaymentTypePreference[] | null;
   paymentReceivers?: PaymentReceiverPreference[] | null;
+  expenseCategories?: ExpenseCategoryPreference[] | null;
 }
 
 export interface UpdateCurrentUserProfileResponse {
