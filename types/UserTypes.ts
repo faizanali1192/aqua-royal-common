@@ -95,6 +95,7 @@ export interface AuthUserType {
   profileImageDataUrl?: string | null;
   mobileUserName?: string | null;
   mobilePasswordSample?: string | null;
+  ledgerPin?: string | null;
   mobileDefaultLanguage?: "en" | "ur" | string | null;
   mobileLastLoginAt?: string | null;
   email: string;
