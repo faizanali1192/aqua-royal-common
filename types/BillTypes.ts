@@ -107,6 +107,18 @@ export interface DeleteBillResponse {
   message: string;
 }
 
+export interface DeleteBulkBillsBody {
+  billIds: (number | string)[];
+}
+
+export interface DeleteBulkBillsResponse {
+  status: string;
+  message: string;
+  data?: {
+    deletedCount: number;
+  };
+}
+
 export interface GenerateBulkBillsBody {
   customerIds: number[];
 }
