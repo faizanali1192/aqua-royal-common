@@ -21,7 +21,8 @@ export type BackupTableName =
   | "driverCustomerAccesses"
   | "bottleBatches"
   | "bottleBatchRecords"
-  | "sale";
+  | "sale"
+  | "customBills";
 
 export interface BackupTableSummary {
   tableName: BackupTableName;

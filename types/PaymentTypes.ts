@@ -6,6 +6,7 @@ export interface AddPaymentBody {
   receivedAmount: number;
   receivedBy: string;
   paymentType: string;
+  note?: string;
 }
 
 export interface AddPaymentParams {
@@ -19,6 +20,7 @@ export interface PaymentData {
   receivedAmount: number;
   receivedBy: string;
   paymentType: string;
+  note?: string;
 }
 
 export interface UpdatedBillData {
@@ -40,6 +42,7 @@ export interface UpdatePaymentBody {
   receivedAmount: number;
   receivedBy: string;
   paymentType: string;
+  note?: string;
 }
 
 export interface UpdatePaymentParams {
@@ -52,6 +55,7 @@ export interface UpdatedPaymentData {
   receivedAmount: number;
   receivedBy: string;
   paymentType: string;
+  note?: string;
   billId: string;
 }
 
@@ -80,6 +84,7 @@ export interface PaymentDataType {
   receivedAmount: number;
   receivedBy: string;
   paymentType: string;
+  note?: string;
 }
 
 export interface GetPaymentsListResponse {
