@@ -38,8 +38,8 @@ export interface GenerateBillResponseType {
 }
 
 export interface GetBillsByDateRangeQueryParams {
-  startDate: string;
-  endDate: string;
+  startDate?: string;
+  endDate?: string;
   page?: number;
   pageLimit?: number;
   sortDirection?: "asc" | "desc";
