@@ -47,7 +47,7 @@ export interface GetBillsByDateRangeQueryParams {
   searchByBillId?: number;
   billStatus?: billStatus;
   customerType?: "fixed" | "nonFixed";
-  area?: string;
+  area?: string | string[];
   searchAddress?: string;
 }
 

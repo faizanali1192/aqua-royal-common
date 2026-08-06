@@ -147,6 +147,7 @@ export interface Customer {
   customerId: string;
   customerName: string;
   customerNameUrdu?: string;
+  address?: AddressModelResponse;
 }
 
 // Define the response structure
