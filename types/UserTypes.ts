@@ -22,6 +22,18 @@ export const ADMIN_PAGE_PERMISSIONS = [
   "backup",
   "setting",
   "userAdmin",
+  "legalDocuments",
+  "legalBillAuthority",
+  "legalDriverAuthority",
+  "legalStaffAuthority",
+  "legalDispenserHandover",
+  "legalJoiningLetter",
+  "legalWaterTestReport",
+  "legalSupplyAgreement",
+  "legalBottleCustody",
+  "legalRecoveryNotice",
+  "legalExperienceLetter",
+  "legalLetterhead",
 ] as const;
 
 export type AdminPagePermission = (typeof ADMIN_PAGE_PERMISSIONS)[number];
