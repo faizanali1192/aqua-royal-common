@@ -176,4 +176,6 @@ export interface BillsPdfReportQuery {
   customerId?: string; // Optional filter parameter
   billStatus?: "paid" | "unpaid" | "partiallyPaid"; // Optional filter parameter
   customerType?: "fixed" | "nonFixed";
+  area?: string | string[];
+  searchAddress?: string;
 }
