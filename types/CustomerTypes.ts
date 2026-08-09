@@ -34,6 +34,7 @@ export interface CreateCustomerRequest {
   totalEmptyBottles: number;
   rate: number;
   active: boolean;
+  smsEnabled?: boolean;
   address: Address;
   dispensers: Dispenser[];
   customerType: string;
@@ -67,6 +68,7 @@ export interface CustomerModelResponse {
   dispensers: Dispenser[];
   rate: number;
   active: boolean;
+  smsEnabled?: boolean;
   addressId: number;
   customerType: string;
   bottleType: string;
