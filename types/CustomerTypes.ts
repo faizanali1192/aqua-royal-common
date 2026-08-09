@@ -99,6 +99,24 @@ export interface paginationParamsType {
   search?: string;
   orderBy?: string;
   active?: boolean | "true" | "false";
+  smsEnabled?: boolean | "true" | "false";
+  bottleType?: "pc" | "kn" | "pet" | "all" | string;
+}
+
+export interface BulkSmsToggleRequest {
+  smsEnabled: boolean;
+  bottleType?: "pc" | "kn" | "pet" | "all";
+  customerType?: "fixed" | "nonFixed" | "all";
+}
+
+export interface BulkSmsToggleResponse {
+  status: string;
+  data: {
+    updatedCount: number;
+    smsEnabled: boolean;
+    bottleType?: string;
+  };
+  message: string;
 }
 
 export interface PaginationResponseType {
@@ -120,6 +138,11 @@ export interface CustomerSummaryResponseType {
   pcNonFixedCustomers: number;
   knNonFixedCustomers: number;
   petNonFixedCustomers: number;
+  totalSmsEnabled?: number;
+  totalSmsDisabled?: number;
+  pcSmsEnabled?: number;
+  knSmsEnabled?: number;
+  petSmsEnabled?: number;
   totalEmptyBottles: number;
   totalDispensers: number;
 }
