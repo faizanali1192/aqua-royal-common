@@ -4,7 +4,12 @@ import {
   PaginationResponseType,
 } from "./CustomerTypes";
 
-export type billStatus = "paid" | "partiallyPaid" | "notPaid";
+export type billStatus =
+  | "paid"
+  | "partiallyPaid"
+  | "notPaid"
+  | "notPaidAndPartiallyPaid"
+  | "paidAndPartiallyPaid";
 
 // Define a type for the route parameters
 export interface GenerateBillParamPropsType {
@@ -174,7 +179,7 @@ export interface BillsPdfReportQuery {
   endDate: string;
   sortDirection?: "asc" | "desc"; // Optional, default is "asc"
   customerId?: string; // Optional filter parameter
-  billStatus?: "paid" | "unpaid" | "partiallyPaid"; // Optional filter parameter
+  billStatus?: billStatus | "unpaid" | string; // Optional filter parameter
   customerType?: "fixed" | "nonFixed";
   area?: string | string[];
   searchAddress?: string;
