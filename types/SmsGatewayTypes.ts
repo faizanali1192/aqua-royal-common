@@ -5,6 +5,7 @@ export interface SmsGatewaySettings {
   autoSmsOnBottleDelivery: boolean;
   autoSmsOnBillCreate: boolean;
   bottleDeliverySmsTemplate: string;
+  billCreatedSmsTemplate?: string;
   updatedAt?: string;
 }
 
@@ -143,6 +144,7 @@ export interface UpdateSmsGatewaySettingsRequest {
   autoSmsOnBottleDelivery?: boolean;
   autoSmsOnBillCreate?: boolean;
   bottleDeliverySmsTemplate?: string;
+  billCreatedSmsTemplate?: string;
 }
 
 export interface SmsGatewaySettingsResponse {
