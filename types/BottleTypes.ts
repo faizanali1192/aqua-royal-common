@@ -37,6 +37,7 @@ export interface BottleSummaryResponseType {
   latestEmptyBottles: number;
   verifiedRecords: number;
   notVerifiedRecords: number;
+  pendingSmsCount?: number;
 }
 
 export interface BottleRequestTypes
