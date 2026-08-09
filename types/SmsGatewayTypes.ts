@@ -31,25 +31,49 @@ export interface PullChunkRequest {
   employeeId?: number;
 }
 
-export interface ChunkMessage {
+export interface PullChunkItem {
   id: number;
   recipientPhone: string;
-  messageText: string;
+  message: string;
+  eventType?: string;
+  customerId?: number | null;
+  // Backward compatibility aliases
+  queueId?: number;
+  phone?: string;
+  phoneNumber?: string;
+  body?: string;
+  smsBody?: string;
+  messageText?: string;
   referenceType?: string | null;
   referenceId?: number | null;
-  customerId?: number | null;
+}
+
+export type ChunkMessage = PullChunkItem;
+
+export interface PullChunkData {
+  items: PullChunkItem[];
+  remainingCount: number;
+  delaySeconds: number;
+  dailyLimit: number;
+  sentToday: number;
+  // Compatibility alias
+  remainingPending?: number;
 }
 
 export interface PullChunkResponse {
   status: "success";
-  count: number;
-  remainingPending: number;
-  messages: ChunkMessage[];
+  data: PullChunkData;
+  // Compatibility aliases at root level
+  count?: number;
+  remainingPending?: number;
+  messages?: PullChunkItem[];
 }
 
 export interface AckChunkResult {
-  id: number;
-  status: "SENT" | "FAILED";
+  id?: number;
+  queueId?: number;
+  smsId?: number;
+  status: "SENT" | "FAILED" | "sent" | "failed" | string;
   errorMessage?: string;
 }
 
@@ -59,10 +83,17 @@ export interface AckChunkRequest {
   results: AckChunkResult[];
 }
 
+export interface AckChunkData {
+  acknowledgedCount: number;
+  remainingCount: number;
+  sentToday: number;
+}
+
 export interface AckChunkResponse {
   status: "success";
   acknowledgedCount: number;
   remainingPending: number;
+  data?: AckChunkData;
 }
 
 export interface SmsGatewayStatusData {
