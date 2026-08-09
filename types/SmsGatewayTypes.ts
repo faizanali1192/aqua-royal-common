@@ -4,8 +4,10 @@ export interface SmsGatewaySettings {
   smsDelaySeconds: number;
   autoSmsOnBottleDelivery: boolean;
   autoSmsOnBillCreate: boolean;
+  autoSmsOnPaymentReceive?: boolean;
   bottleDeliverySmsTemplate: string;
   billCreatedSmsTemplate?: string;
+  paymentReceivedSmsTemplate?: string;
   updatedAt?: string;
 }
 
@@ -109,6 +111,7 @@ export interface SmsGatewayStatusData {
   gatewayMobileNumber: string;
   autoSmsOnBottleDelivery: boolean;
   autoSmsOnBillCreate: boolean;
+  autoSmsOnPaymentReceive?: boolean;
   lastDispatchedAt: string | null;
 }
 
@@ -143,8 +146,10 @@ export interface UpdateSmsGatewaySettingsRequest {
   smsDelaySeconds?: number;
   autoSmsOnBottleDelivery?: boolean;
   autoSmsOnBillCreate?: boolean;
+  autoSmsOnPaymentReceive?: boolean;
   bottleDeliverySmsTemplate?: string;
   billCreatedSmsTemplate?: string;
+  paymentReceivedSmsTemplate?: string;
 }
 
 export interface SmsGatewaySettingsResponse {
