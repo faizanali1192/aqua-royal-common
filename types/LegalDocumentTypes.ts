@@ -9,7 +9,8 @@ export type LegalDocumentCategory =
   | "bottleCustody"
   | "recoveryNotice"
   | "experienceLetter"
-  | "letterhead";
+  | "letterhead"
+  | "priceIncrease";
 
 export type WaterQualityRating = "poor" | "bad" | "good" | "excellent";
 
