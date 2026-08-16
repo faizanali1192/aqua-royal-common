@@ -52,6 +52,7 @@ export interface GetBillsByDateRangeQueryParams {
   searchByBillId?: number;
   billStatus?: billStatus;
   customerType?: "fixed" | "nonFixed";
+  bottleType?: "pc" | "kn" | "pet";
   area?: string | string[];
   searchAddress?: string;
 }
@@ -181,6 +182,7 @@ export interface BillsPdfReportQuery {
   customerId?: string; // Optional filter parameter
   billStatus?: billStatus | "unpaid" | string; // Optional filter parameter
   customerType?: "fixed" | "nonFixed";
+  bottleType?: "pc" | "kn" | "pet";
   area?: string | string[];
   searchAddress?: string;
 }
